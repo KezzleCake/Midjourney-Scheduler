@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+    app:
+        image: python:3.11
+        working_dir: /project
+        command:
+            - sh
+            - -c
+            - |
+                cd project
+                pip install -r requirements.txt
+                python app/main.py
+        volumes:
+            - .:/project
+        env_file:
+            - .env
